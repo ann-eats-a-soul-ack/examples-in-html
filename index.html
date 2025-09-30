@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>🦋</title>
+    <meta name="description" content="digital love languages ~ hand coded love letters">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
+      
+      body {
+        background-color: lightblue;
+      }
+      
+    /* <3<3<3 write all of your loving css ABOVE this line <3<3<3 */
+    </style>
+  </head>
+  
+  
+  
+  <body>
+    <!-- <3<3<3 keep all of your html BELOW this line <3<3<3 -->
+ 
+    <div id="button-container">
+      <button id="button">tell me</button>
+      <div class="output-wrapper"></div>
+    </div> 
+
+  
+
+    
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous">
+              // this part loads in a javascript library called jquery. you can tell when we're using jquery by the $ in front
+  </script>
+    <script>
+        $('#button').bind('click', function() {
+            // below is the code that gets run afer the button get clicked
+            // first we print to the console that the button was clicked
+            console.log("button clicked!");
+
+            // then we use ajax, to make a request to the server at the /generate route
+            $.get('/generate', function(response) {
+               // below is the code that runs when the python server route returns,
+               // response is a variable which holds the response from the server (a string of text)
+               // and which we can use in whatever way we want
+               // ... first we take this response and print it to the console 
+               console.log(response);
+               // and then we insert the response into the .output-wrapper element 
+               // (this also replaces whatever was in this element before) 
+               $('.output-wrapper').html(response);
+            });
+                  
+            return false;
+        });
+    </script>
+  </body>
+</html>
